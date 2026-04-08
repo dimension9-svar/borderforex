@@ -21,93 +21,62 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="mx-auto max-w-[1120px] px-6 py-16 lg:py-20">
+    <footer className="bg-surface-container-highest border-t border-outline-variant/30">
+      <div className="mx-auto max-w-[1120px] px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
-          {/* Brand */}
           <div>
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2.5">
               <Logo size={28} />
-              <span className="text-[15px] font-semibold tracking-tight">
-                Border<span className="text-cyan">Forex</span>
+              <span className="text-[15px] font-semibold tracking-tight text-on-surface">
+                Border<span className="text-primary">Forex</span>
               </span>
             </Link>
-            <p className="mt-4 text-[13px] leading-relaxed text-gray-400 max-w-xs">
-              Your trusted partner for foreign exchange, international money
-              transfers, and travel currency solutions in South Africa.
+            <p className="mt-4 text-[13px] leading-relaxed text-on-surface-variant max-w-xs">
+              Authorised dealer providing foreign exchange, international
+              transfers, and travel currency solutions across South Africa.
             </p>
           </div>
 
-          {/* Services */}
           <div>
-            <h3 className="text-[11px] font-semibold uppercase tracking-widest text-gray-500">
-              Services
-            </h3>
+            <h3 className="text-[11px] font-semibold uppercase tracking-widest text-outline">Services</h3>
             <ul className="mt-4 space-y-2.5">
-              {footerLinks.services.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-[13px] text-gray-400 hover:text-cyan transition-colors">
-                    {link.name}
-                  </Link>
-                </li>
+              {footerLinks.services.map((l) => (
+                <li key={l.href}><Link href={l.href} className="text-[13px] text-on-surface-variant hover:text-primary transition-colors">{l.name}</Link></li>
               ))}
             </ul>
           </div>
 
-          {/* Company */}
           <div>
-            <h3 className="text-[11px] font-semibold uppercase tracking-widest text-gray-500">
-              Company
-            </h3>
+            <h3 className="text-[11px] font-semibold uppercase tracking-widest text-outline">Company</h3>
             <ul className="mt-4 space-y-2.5">
-              {footerLinks.company.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-[13px] text-gray-400 hover:text-cyan transition-colors">
-                    {link.name}
-                  </Link>
-                </li>
+              {footerLinks.company.map((l) => (
+                <li key={l.href}><Link href={l.href} className="text-[13px] text-on-surface-variant hover:text-primary transition-colors">{l.name}</Link></li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
-            <h3 className="text-[11px] font-semibold uppercase tracking-widest text-gray-500">
-              Contact
-            </h3>
+            <h3 className="text-[11px] font-semibold uppercase tracking-widest text-outline">Contact</h3>
             <ul className="mt-4 space-y-3.5">
               <li className="flex items-start gap-2.5">
-                <MapPin className="h-3.5 w-3.5 text-cyan mt-0.5 shrink-0" />
-                <span className="text-[13px] leading-snug text-gray-400">
-                  Unit 63, Block 4, Lombardy Business Park,
-                  <br />
-                  66 Graham Road, Shere, Pretoria, 0084
-                </span>
+                <MapPin className="h-3.5 w-3.5 text-primary mt-0.5 shrink-0" />
+                <span className="text-[13px] leading-snug text-on-surface-variant">Unit 63, Block 4, Lombardy Business Park,<br />66 Graham Road, Shere, Pretoria, 0084</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail className="h-3.5 w-3.5 text-cyan shrink-0" />
-                <a href="mailto:info@borderforex.co.za" className="text-[13px] text-gray-400 hover:text-cyan transition-colors">
-                  info@borderforex.co.za
-                </a>
+                <Mail className="h-3.5 w-3.5 text-primary shrink-0" />
+                <a href="mailto:info@borderforex.co.za" className="text-[13px] text-on-surface-variant hover:text-primary transition-colors">info@borderforex.co.za</a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="h-3.5 w-3.5 text-cyan shrink-0" />
-                <a href="tel:+27123456789" className="text-[13px] text-gray-400 hover:text-cyan transition-colors">
-                  +27 (0) 12 345 6789
-                </a>
+                <Phone className="h-3.5 w-3.5 text-primary shrink-0" />
+                <a href="tel:+27123456789" className="text-[13px] text-on-surface-variant hover:text-primary transition-colors">+27 (0) 12 345 6789</a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-14 pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row justify-between items-center gap-3">
-          <p className="text-[11px] text-gray-600">
-            &copy; {new Date().getFullYear()} Border Forex. All rights reserved.
-          </p>
-          <p className="text-[11px] text-gray-600">
-            Authorised Financial Services Provider
-          </p>
+        <div className="mt-14 pt-6 border-t border-outline-variant/30 flex flex-col sm:flex-row justify-between items-center gap-3">
+          <p className="text-[11px] text-outline">&copy; {new Date().getFullYear()} Border Forex. All rights reserved.</p>
+          <p className="text-[11px] text-outline">Authorised Financial Services Provider</p>
         </div>
       </div>
     </footer>

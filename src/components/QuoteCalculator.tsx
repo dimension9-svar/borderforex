@@ -103,31 +103,31 @@ export default function QuoteCalculator() {
 
   if (status === "sent") {
     return (
-      <div className="rounded-2xl border border-green-200 bg-green-50 p-10 text-center">
-        <CheckCircle2 className="h-10 w-10 text-green-500 mx-auto mb-3" />
-        <h3 className="text-[17px] font-bold text-label">Quote Request Sent</h3>
-        <p className="mt-2 text-[14px] text-label-secondary max-w-md mx-auto">
+      <div className="rounded-[var(--radius-lg)] border border-outline-variant/30 bg-surface-container-low p-10 text-center">
+        <CheckCircle2 className="h-10 w-10 text-primary mx-auto mb-3" />
+        <h3 className="text-[17px] font-bold text-on-surface">Quote Request Sent</h3>
+        <p className="mt-2 text-[14px] text-on-surface-variant max-w-md mx-auto">
           Our team will send you a locked-in live rate within the hour during
           business hours (Mon–Fri 08:00–17:00).
         </p>
-        <div className="mt-5 rounded-xl bg-white border border-green-200 p-4 max-w-sm mx-auto text-left">
-          <div className="text-[13px] text-label-secondary space-y-1.5">
+        <div className="mt-5 rounded-[var(--radius-md)] bg-white border border-outline-variant/30 p-4 max-w-sm mx-auto text-left">
+          <div className="text-[13px] text-on-surface-variant space-y-1.5">
             <p>
-              <span className="font-medium text-label">Direction:</span>{" "}
+              <span className="font-medium text-on-surface">Direction:</span>{" "}
               {direction === "buy" ? "Buying" : "Selling"} {toCurrency}
             </p>
             <p>
-              <span className="font-medium text-label">Amount:</span>{" "}
+              <span className="font-medium text-on-surface">Amount:</span>{" "}
               {parseFloat(amount).toLocaleString()} {fromCurrency}
             </p>
             {convertedAmount && (
               <p>
-                <span className="font-medium text-label">Indicative:</span>{" "}
+                <span className="font-medium text-on-surface">Indicative:</span>{" "}
                 ≈ {convertedAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} {toCurrency}
               </p>
             )}
             <p>
-              <span className="font-medium text-label">Service:</span>{" "}
+              <span className="font-medium text-on-surface">Service:</span>{" "}
               {service}
             </p>
           </div>
@@ -141,7 +141,7 @@ export default function QuoteCalculator() {
             setPhone("");
             setService("");
           }}
-          className="mt-5 text-[13px] font-medium text-cyan hover:text-cyan-dark transition-colors"
+          className="mt-5 text-[13px] font-medium text-primary hover:text-primary-dark transition-colors"
         >
           Get another quote
         </button>
@@ -152,9 +152,9 @@ export default function QuoteCalculator() {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* Calculator Card */}
-      <div className="rounded-2xl border border-separator-light bg-white overflow-hidden" style={{ boxShadow: "var(--shadow-md)" }}>
+      <div className="rounded-[var(--radius-lg)] border border-outline-variant-light bg-white overflow-hidden" style={{ boxShadow: "var(--shadow-md)" }}>
         {/* Direction Toggle */}
-        <div className="flex border-b border-separator-light">
+        <div className="flex border-b border-outline-variant-light">
           <button
             type="button"
             onClick={() => {
@@ -165,7 +165,7 @@ export default function QuoteCalculator() {
             className={`flex-1 py-3 text-[13px] font-semibold transition-colors ${
               direction === "buy"
                 ? "bg-cyan text-white"
-                : "bg-fill text-label-secondary hover:text-label"
+                : "bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:text-on-surface"
             }`}
           >
             I want to Buy Foreign Currency
@@ -180,7 +180,7 @@ export default function QuoteCalculator() {
             className={`flex-1 py-3 text-[13px] font-semibold transition-colors ${
               direction === "sell"
                 ? "bg-cyan text-white"
-                : "bg-fill text-label-secondary hover:text-label"
+                : "bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:text-on-surface"
             }`}
           >
             I want to Sell Foreign Currency
@@ -190,7 +190,7 @@ export default function QuoteCalculator() {
         <div className="p-6 lg:p-8 space-y-5">
           {/* From */}
           <div>
-            <label className="block text-[11px] font-semibold uppercase tracking-widest text-label-tertiary mb-1.5">
+            <label className="block text-[11px] font-semibold uppercase tracking-widest text-outline mb-1.5">
               {direction === "buy" ? "You Pay" : "You Send"}
             </label>
             <div className="flex gap-3">
@@ -202,7 +202,7 @@ export default function QuoteCalculator() {
                     setToCurrency(fromCurrency);
                   }
                 }}
-                className="w-48 shrink-0 rounded-xl border border-separator px-3 py-2.5 text-[13px] font-medium text-label bg-white focus:border-cyan focus:ring-2 focus:ring-cyan/20 outline-none transition-all"
+                className="w-48 shrink-0 rounded-[var(--radius-md)] border border-outline-variant px-3 py-2.5 text-[13px] font-medium text-on-surface bg-white focus:border-cyan focus:ring-2 focus:ring-cyan/20 outline-none transition-all"
               >
                 {allCurrencies.map((c) => (
                   <option key={c.code} value={c.code}>
@@ -218,7 +218,7 @@ export default function QuoteCalculator() {
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
                 placeholder="0.00"
-                className="flex-1 rounded-xl border border-separator px-4 py-2.5 text-[18px] font-semibold text-label placeholder:text-label-tertiary focus:border-cyan focus:ring-2 focus:ring-cyan/20 outline-none tabular-nums transition-all"
+                className="flex-1 rounded-[var(--radius-md)] border border-outline-variant px-4 py-2.5 text-[18px] font-semibold text-on-surface placeholder:text-outline focus:border-cyan focus:ring-2 focus:ring-cyan/20 outline-none tabular-nums transition-all"
               />
             </div>
           </div>
@@ -228,7 +228,7 @@ export default function QuoteCalculator() {
             <button
               type="button"
               onClick={swap}
-              className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-separator-light text-label-tertiary hover:border-cyan hover:text-cyan hover:bg-cyan/5 transition-all"
+              className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-outline-variant-light text-outline hover:border-cyan hover:text-primary hover:bg-cyan/5 transition-all"
               aria-label="Swap currencies"
             >
               <ArrowDownUp className="h-3.5 w-3.5" />
@@ -237,7 +237,7 @@ export default function QuoteCalculator() {
 
           {/* To */}
           <div>
-            <label className="block text-[11px] font-semibold uppercase tracking-widest text-label-tertiary mb-1.5">
+            <label className="block text-[11px] font-semibold uppercase tracking-widest text-outline mb-1.5">
               {direction === "buy" ? "You Receive" : "You Get (ZAR)"}
             </label>
             <div className="flex gap-3">
@@ -249,7 +249,7 @@ export default function QuoteCalculator() {
                     setFromCurrency(toCurrency);
                   }
                 }}
-                className="w-48 shrink-0 rounded-xl border border-separator px-3 py-2.5 text-[13px] font-medium text-label bg-white focus:border-cyan focus:ring-2 focus:ring-cyan/20 outline-none transition-all"
+                className="w-48 shrink-0 rounded-[var(--radius-md)] border border-outline-variant px-3 py-2.5 text-[13px] font-medium text-on-surface bg-white focus:border-cyan focus:ring-2 focus:ring-cyan/20 outline-none transition-all"
               >
                 {allCurrencies.map((c) => (
                   <option key={c.code} value={c.code}>
@@ -257,7 +257,7 @@ export default function QuoteCalculator() {
                   </option>
                 ))}
               </select>
-              <div className="flex-1 rounded-xl border border-separator-light bg-fill px-4 py-2.5 text-[18px] font-semibold text-label tabular-nums">
+              <div className="flex-1 rounded-[var(--radius-md)] border border-outline-variant-light bg-surface-container-low px-4 py-2.5 text-[18px] font-semibold text-on-surface tabular-nums">
                 {convertedAmount
                   ? convertedAmount.toLocaleString(undefined, {
                       minimumFractionDigits: 2,
@@ -270,12 +270,12 @@ export default function QuoteCalculator() {
 
           {/* Rate Display */}
           {rate && fromCurrency !== toCurrency && (
-            <div className="flex items-center gap-2 rounded-xl bg-cyan/[0.04] border border-cyan/10 px-4 py-2.5">
-              <TrendingUp className="h-3.5 w-3.5 text-cyan shrink-0" />
-              <span className="text-[13px] text-label-secondary">
-                <span className="font-semibold text-label">Indicative rate:</span>{" "}
+            <div className="flex items-center gap-2 rounded-[var(--radius-md)] bg-cyan/[0.04] border border-cyan/10 px-4 py-2.5">
+              <TrendingUp className="h-3.5 w-3.5 text-primary shrink-0" />
+              <span className="text-[13px] text-on-surface-variant">
+                <span className="font-semibold text-on-surface">Indicative rate:</span>{" "}
                 1 {fromCurrency} ={" "}
-                <span className="font-semibold text-cyan">
+                <span className="font-semibold text-primary">
                   {rate.toLocaleString(undefined, { minimumFractionDigits: 4, maximumFractionDigits: 4 })}
                 </span>{" "}
                 {toCurrency}
@@ -284,7 +284,7 @@ export default function QuoteCalculator() {
           )}
 
           {/* Disclaimer */}
-          <div className="flex items-start gap-2 text-[11px] text-label-tertiary">
+          <div className="flex items-start gap-2 text-[11px] text-outline">
             <Info className="h-3 w-3 mt-0.5 shrink-0" />
             <span>
               This is an indicative rate for illustration only. Your final rate
@@ -295,17 +295,17 @@ export default function QuoteCalculator() {
       </div>
 
       {/* Contact Details */}
-      <div className="rounded-2xl border border-separator-light bg-white p-6 lg:p-8 space-y-4" style={{ boxShadow: "var(--shadow-md)" }}>
+      <div className="rounded-[var(--radius-lg)] border border-outline-variant-light bg-white p-6 lg:p-8 space-y-4" style={{ boxShadow: "var(--shadow-md)" }}>
         <div>
-          <h3 className="text-[17px] font-bold text-label">Request a Live Rate</h3>
-          <p className="text-[13px] text-label-secondary mt-0.5">
+          <h3 className="text-[17px] font-bold text-on-surface">Request a Live Rate</h3>
+          <p className="text-[13px] text-on-surface-variant mt-0.5">
             Submit your details and we&apos;ll send you a locked-in rate you can transact on.
           </p>
         </div>
 
         <div>
-          <label htmlFor="quote-service" className="block text-[13px] font-medium text-label mb-1">Service Type</label>
-          <select id="quote-service" required value={service} onChange={(e) => setService(e.target.value)} className="w-full rounded-xl border border-separator px-4 py-2.5 text-[14px] text-label bg-white focus:border-cyan focus:ring-2 focus:ring-cyan/20 outline-none transition-all">
+          <label htmlFor="quote-service" className="block text-[13px] font-medium text-on-surface mb-1">Service Type</label>
+          <select id="quote-service" required value={service} onChange={(e) => setService(e.target.value)} className="w-full rounded-[var(--radius-md)] border border-outline-variant px-4 py-2.5 text-[14px] text-on-surface bg-white focus:border-cyan focus:ring-2 focus:ring-cyan/20 outline-none transition-all">
             <option value="">Select a service</option>
             {serviceTypes.map((s) => (<option key={s} value={s}>{s}</option>))}
           </select>
@@ -313,18 +313,18 @@ export default function QuoteCalculator() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="quote-name" className="block text-[13px] font-medium text-label mb-1">Full Name</label>
-            <input id="quote-name" type="text" required value={name} onChange={(e) => setName(e.target.value)} className="w-full rounded-xl border border-separator px-4 py-2.5 text-[14px] text-label placeholder:text-label-tertiary focus:border-cyan focus:ring-2 focus:ring-cyan/20 outline-none transition-all" placeholder="John Doe" />
+            <label htmlFor="quote-name" className="block text-[13px] font-medium text-on-surface mb-1">Full Name</label>
+            <input id="quote-name" type="text" required value={name} onChange={(e) => setName(e.target.value)} className="w-full rounded-[var(--radius-md)] border border-outline-variant px-4 py-2.5 text-[14px] text-on-surface placeholder:text-outline focus:border-cyan focus:ring-2 focus:ring-cyan/20 outline-none transition-all" placeholder="John Doe" />
           </div>
           <div>
-            <label htmlFor="quote-phone" className="block text-[13px] font-medium text-label mb-1">Phone Number</label>
-            <input id="quote-phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full rounded-xl border border-separator px-4 py-2.5 text-[14px] text-label placeholder:text-label-tertiary focus:border-cyan focus:ring-2 focus:ring-cyan/20 outline-none transition-all" placeholder="+27 12 345 6789" />
+            <label htmlFor="quote-phone" className="block text-[13px] font-medium text-on-surface mb-1">Phone Number</label>
+            <input id="quote-phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full rounded-[var(--radius-md)] border border-outline-variant px-4 py-2.5 text-[14px] text-on-surface placeholder:text-outline focus:border-cyan focus:ring-2 focus:ring-cyan/20 outline-none transition-all" placeholder="+27 12 345 6789" />
           </div>
         </div>
 
         <div>
-          <label htmlFor="quote-email" className="block text-[13px] font-medium text-label mb-1">Email Address</label>
-          <input id="quote-email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} className="w-full rounded-xl border border-separator px-4 py-2.5 text-[14px] text-label placeholder:text-label-tertiary focus:border-cyan focus:ring-2 focus:ring-cyan/20 outline-none transition-all" placeholder="john@example.com" />
+          <label htmlFor="quote-email" className="block text-[13px] font-medium text-on-surface mb-1">Email Address</label>
+          <input id="quote-email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} className="w-full rounded-[var(--radius-md)] border border-outline-variant px-4 py-2.5 text-[14px] text-on-surface placeholder:text-outline focus:border-cyan focus:ring-2 focus:ring-cyan/20 outline-none transition-all" placeholder="john@example.com" />
         </div>
 
         <button

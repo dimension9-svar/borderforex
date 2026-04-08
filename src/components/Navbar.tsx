@@ -19,143 +19,90 @@ export default function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-surface/70 backdrop-blur-2xl backdrop-saturate-150 border-b border-separator-light/60">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/80 backdrop-blur-xl border-b border-outline-variant/30">
       <div className="mx-auto max-w-[1120px] px-6">
-        <div className="flex h-12 items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+        <div className="flex h-16 items-center justify-between">
+          <Link href="/" className="flex items-center gap-2.5">
             <Logo size={28} />
-            <span className="text-[15px] font-semibold tracking-tight text-label">
-              Border<span className="text-cyan">Forex</span>
+            <span className="text-[15px] font-semibold tracking-tight text-on-surface">
+              Border<span className="text-primary">Forex</span>
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-0.5">
-            <Link
-              href="/"
-              className="px-3 py-1.5 text-xs font-medium text-label-secondary hover:text-label transition-colors rounded-lg"
-            >
+          {/* Desktop */}
+          <div className="hidden lg:flex items-center gap-1">
+            <Link href="/" className="px-3 py-2 text-[13px] font-medium text-on-surface-variant hover:text-on-surface transition-colors rounded-[var(--radius-sm)]">
               Home
             </Link>
-
-            {/* Services Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setServicesOpen(true)}
-              onMouseLeave={() => setServicesOpen(false)}
-            >
-              <Link
-                href="/services"
-                className="flex items-center gap-0.5 px-3 py-1.5 text-xs font-medium text-label-secondary hover:text-label transition-colors rounded-lg"
-              >
-                Services
-                <ChevronDown className="h-3 w-3" />
+            <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
+              <Link href="/services" className="flex items-center gap-0.5 px-3 py-2 text-[13px] font-medium text-on-surface-variant hover:text-on-surface transition-colors rounded-[var(--radius-sm)]">
+                Services <ChevronDown className="h-3 w-3" />
               </Link>
               <AnimatePresence>
                 {servicesOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: 4, scale: 0.98 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 4, scale: 0.98 }}
-                    transition={{ duration: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-xl bg-white/80 backdrop-blur-2xl backdrop-saturate-150 shadow-lg border border-separator-light/60 p-1.5"
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 4 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-52 rounded-[var(--radius-md)] bg-surface-container-low border border-outline-variant/30 p-1.5"
+                    style={{ boxShadow: "var(--shadow-level2)" }}
                   >
-                    {services.map((service) => (
-                      <Link
-                        key={service.href}
-                        href={service.href}
-                        className="block px-3 py-2 text-xs font-medium text-label-secondary hover:text-cyan hover:bg-fill rounded-lg transition-colors"
-                      >
-                        {service.name}
+                    {services.map((s) => (
+                      <Link key={s.href} href={s.href} className="block px-3 py-2 text-[13px] font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-[var(--radius-sm)] transition-colors">
+                        {s.name}
                       </Link>
                     ))}
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
-
-            <Link
-              href="/about"
-              className="px-3 py-1.5 text-xs font-medium text-label-secondary hover:text-label transition-colors rounded-lg"
-            >
+            <Link href="/about" className="px-3 py-2 text-[13px] font-medium text-on-surface-variant hover:text-on-surface transition-colors rounded-[var(--radius-sm)]">
               About
             </Link>
-            <Link
-              href="/contact"
-              className="px-3 py-1.5 text-xs font-medium text-label-secondary hover:text-label transition-colors rounded-lg"
-            >
+            <Link href="/contact" className="px-3 py-2 text-[13px] font-medium text-on-surface-variant hover:text-on-surface transition-colors rounded-[var(--radius-sm)]">
               Contact
             </Link>
           </div>
 
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-2">
-            <Link
-              href="/quote"
-              className="px-3 py-1.5 text-xs font-medium text-cyan hover:text-cyan-dark transition-colors"
-            >
+            <Link href="/quote" className="px-3 py-2 text-[13px] font-medium text-primary hover:text-on-primary-container transition-colors">
               Get a quote
             </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-lg bg-cyan px-4 py-1.5 text-xs font-medium text-white hover:bg-cyan-dark transition-colors"
-            >
+            <Link href="/contact" className="inline-flex items-center justify-center rounded-[var(--radius-xl)] bg-primary px-5 py-2 text-[13px] font-medium text-on-primary hover:opacity-90 transition-opacity">
               Contact us
             </Link>
           </div>
 
-          {/* Mobile Toggle */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-1.5 rounded-lg text-label-secondary hover:bg-fill transition-colors"
-            aria-label="Toggle menu"
-          >
+          {/* Mobile toggle */}
+          <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-2 rounded-[var(--radius-sm)] text-on-surface-variant" aria-label="Toggle menu">
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:hidden overflow-hidden border-t border-separator-light/60 bg-surface/90 backdrop-blur-2xl"
+            transition={{ duration: 0.2 }}
+            className="lg:hidden overflow-hidden border-t border-outline-variant/30 bg-surface-container-lowest"
           >
             <div className="px-6 py-4 space-y-0.5">
-              <Link href="/" onClick={() => setMobileOpen(false)} className="block px-3 py-2.5 text-sm font-medium text-label-secondary hover:text-cyan rounded-lg">
-                Home
-              </Link>
-              <Link href="/services" onClick={() => setMobileOpen(false)} className="block px-3 py-2.5 text-sm font-medium text-label-secondary hover:text-cyan rounded-lg">
-                Services
-              </Link>
-              {services.map((service) => (
-                <Link
-                  key={service.href}
-                  href={service.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="block pl-7 pr-3 py-2 text-sm text-label-tertiary hover:text-cyan rounded-lg"
-                >
-                  {service.name}
-                </Link>
+              <Link href="/" onClick={() => setMobileOpen(false)} className="block px-3 py-2.5 text-[14px] font-medium text-on-surface-variant rounded-[var(--radius-sm)]">Home</Link>
+              <Link href="/services" onClick={() => setMobileOpen(false)} className="block px-3 py-2.5 text-[14px] font-medium text-on-surface-variant rounded-[var(--radius-sm)]">Services</Link>
+              {services.map((s) => (
+                <Link key={s.href} href={s.href} onClick={() => setMobileOpen(false)} className="block pl-7 pr-3 py-2 text-[13px] text-outline rounded-[var(--radius-sm)]">{s.name}</Link>
               ))}
-              <Link href="/about" onClick={() => setMobileOpen(false)} className="block px-3 py-2.5 text-sm font-medium text-label-secondary hover:text-cyan rounded-lg">
-                About
-              </Link>
-              <Link href="/contact" onClick={() => setMobileOpen(false)} className="block px-3 py-2.5 text-sm font-medium text-label-secondary hover:text-cyan rounded-lg">
-                Contact
-              </Link>
+              <Link href="/about" onClick={() => setMobileOpen(false)} className="block px-3 py-2.5 text-[14px] font-medium text-on-surface-variant rounded-[var(--radius-sm)]">About</Link>
+              <Link href="/contact" onClick={() => setMobileOpen(false)} className="block px-3 py-2.5 text-[14px] font-medium text-on-surface-variant rounded-[var(--radius-sm)]">Contact</Link>
               <div className="pt-3 flex gap-3">
-                <Link href="/quote" onClick={() => setMobileOpen(false)} className="flex-1 text-center rounded-lg border border-separator px-4 py-2.5 text-sm font-medium text-cyan">
-                  Get a quote
-                </Link>
-                <Link href="/contact" onClick={() => setMobileOpen(false)} className="flex-1 text-center rounded-lg bg-cyan px-4 py-2.5 text-sm font-medium text-white">
-                  Contact us
-                </Link>
+                <Link href="/quote" onClick={() => setMobileOpen(false)} className="flex-1 text-center rounded-[var(--radius-xl)] border border-outline px-4 py-2.5 text-[14px] font-medium text-primary">Get a quote</Link>
+                <Link href="/contact" onClick={() => setMobileOpen(false)} className="flex-1 text-center rounded-[var(--radius-xl)] bg-primary px-4 py-2.5 text-[14px] font-medium text-on-primary">Contact us</Link>
               </div>
             </div>
           </motion.div>

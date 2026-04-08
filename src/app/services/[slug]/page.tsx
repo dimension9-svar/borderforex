@@ -201,27 +201,19 @@ export default async function ServicePage({
   return (
     <>
       {/* Header */}
-      <section className="bg-gradient-to-b from-gray-900 via-[#0a1628] to-navy-dark py-20 lg:py-28">
+      <section className="py-16 lg:py-20 bg-surface-container-low border-b border-outline-variant/30">
         <div className="mx-auto max-w-[1120px] px-6">
           <AnimatedSection>
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-1 text-[13px] text-gray-500 hover:text-cyan transition-colors mb-6"
-            >
-              <ArrowLeft className="h-3 w-3" />
-              All Services
+            <Link href="/services" className="inline-flex items-center gap-1 text-[13px] text-on-surface-variant hover:text-primary transition-colors mb-6">
+              <ArrowLeft className="h-3 w-3" /> All Services
             </Link>
             <div className="flex items-center gap-3 mb-3">
-              <div className="inline-flex items-center justify-center h-12 w-12 rounded-2xl bg-cyan/15 text-cyan">
+              <div className="inline-flex items-center justify-center h-12 w-12 rounded-[var(--radius-lg)] bg-primary-container text-on-primary-container">
                 <Icon className="h-6 w-6" />
               </div>
-              <h1 className="text-[36px] sm:text-[44px] font-normal tracking-[-0.03em] text-white">
-                {service.title}
-              </h1>
+              <h1 className="text-[36px] sm:text-[44px] font-normal tracking-[-0.03em] text-on-surface">{service.title}</h1>
             </div>
-            <p className="text-[17px] text-gray-400 max-w-xl">
-              {service.tagline}
-            </p>
+            <p className="text-[17px] text-on-surface-variant max-w-xl">{service.tagline}</p>
           </AnimatedSection>
         </div>
       </section>
@@ -249,7 +241,7 @@ export default async function ServicePage({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {service.features.map((f) => (
                     <div key={f} className="flex items-start gap-2.5">
-                      <CheckCircle2 className="h-4 w-4 text-cyan mt-0.5 shrink-0" />
+                      <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
                       <span className="text-[13px] text-label-secondary">{f}</span>
                     </div>
                   ))}
@@ -265,9 +257,9 @@ export default async function ServicePage({
                     <div
                       key={step.step}
                       className="relative rounded-2xl bg-white border border-separator-light p-5"
-                      style={{ boxShadow: "var(--shadow-sm)" }}
+                      style={{ boxShadow: "var(--shadow-level1)" }}
                     >
-                      <div className="absolute -top-2.5 left-4 inline-flex items-center justify-center h-5 w-5 rounded-full bg-cyan text-white text-[10px] font-bold">
+                      <div className="absolute -top-2.5 left-4 inline-flex items-center justify-center h-5 w-5 rounded-[var(--radius-full)] bg-primary text-on-primary text-[10px] font-bold">
                         {i + 1}
                       </div>
                       <h3 className="text-[13px] font-semibold text-label mt-0.5">
@@ -287,10 +279,10 @@ export default async function ServicePage({
               <AnimatedSection>
                 <div
                   className="rounded-2xl bg-white border border-separator-light p-6"
-                  style={{ boxShadow: "var(--shadow-sm)" }}
+                  style={{ boxShadow: "var(--shadow-level1)" }}
                 >
                   <div className="flex items-center gap-2 mb-3">
-                    <FileText className="h-4 w-4 text-navy" />
+                    <FileText className="h-4 w-4 text-secondary" />
                     <h3 className="text-[13px] font-semibold text-label">
                       Requirements
                     </h3>
@@ -298,7 +290,7 @@ export default async function ServicePage({
                   <ul className="space-y-2.5">
                     {service.requirements.map((r) => (
                       <li key={r} className="flex items-start gap-2 text-[13px] text-label-secondary">
-                        <div className="h-1 w-1 rounded-full bg-navy mt-1.5 shrink-0" />
+                        <div className="h-1 w-1 rounded-[var(--radius-full)] bg-secondary mt-1.5 shrink-0" />
                         {r}
                       </li>
                     ))}
@@ -307,21 +299,21 @@ export default async function ServicePage({
               </AnimatedSection>
 
               <AnimatedSection delay={0.08}>
-                <div className="rounded-2xl bg-gradient-to-br from-navy to-gray-900 p-6 text-white">
+                <div className="rounded-[var(--radius-lg)] bg-primary-container p-6 text-on-primary-container">
                   <h3 className="text-[17px] font-medium">Ready to get started?</h3>
-                  <p className="mt-1.5 text-[13px] text-gray-400">
+                  <p className="mt-1.5 text-[13px] text-on-primary-container/70">
                     Contact our team for a personalised quote and expert guidance.
                   </p>
                   <Link
                     href="/quote"
-                    className="inline-flex items-center justify-center gap-2 mt-4 w-full rounded-lg bg-cyan px-5 py-2.5 text-[13px] font-medium text-white hover:bg-cyan-dark transition-all"
+                    className="inline-flex items-center justify-center gap-2 mt-4 w-full rounded-[var(--radius-xl)] bg-primary px-5 py-2.5 text-[13px] font-medium text-on-primary hover:opacity-90 transition-all"
                   >
                     Get a Quote
                     <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                   <a
                     href="mailto:info@borderforex.co.za"
-                    className="block mt-2 text-center text-[12px] text-gray-500 hover:text-cyan transition-colors"
+                    className="block mt-2 text-center text-[12px] text-outline hover:text-primary transition-colors"
                   >
                     info@borderforex.co.za
                   </a>
