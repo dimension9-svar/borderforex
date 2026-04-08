@@ -1,0 +1,85 @@
+/* ═══════════════════════════════════════════════════════
+   M3 Design Tokens — AUTO-GENERATED from seed #65479e
+   Do not edit manually. Run: node scripts/generate-theme.mjs
+   ═══════════════════════════════════════════════════════ */
+
+@theme inline {
+  /* ── Light Scheme ── */
+  --color-primary: #6c4ea5;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #ebddff;
+  --color-on-primary-container: #260059;
+  --color-secondary: #635b70;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #e9def8;
+  --color-on-secondary-container: #1f182b;
+  --color-tertiary: #7e525d;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #ffd9e1;
+  --color-on-tertiary-container: #31101b;
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #410002;
+  --color-background: #fffbff;
+  --color-on-background: #1d1b1e;
+  --color-surface: #fffbff;
+  --color-on-surface: #1d1b1e;
+  --color-surface-variant: #e7e0eb;
+  --color-on-surface-variant: #49454e;
+  --color-outline: #7a757f;
+  --color-outline-variant: #cbc4cf;
+  --color-shadow: #000000;
+  --color-scrim: #000000;
+  --color-inverse-surface: #323033;
+  --color-inverse-on-surface: #f5eff4;
+  --color-inverse-primary: #d3bbff;
+
+  /* ── Surface Containers (Light) ── */
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8f2f7;
+  --color-surface-container: #f2ecf1;
+  --color-surface-container-high: #ece6eb;
+  --color-surface-container-highest: #e6e1e6;
+
+  /* ── Tonal Palettes ── */
+  --color-primary-tone-0: #000000;
+  --color-primary-tone-10: #260059;
+  --color-primary-tone-20: #3c1b73;
+  --color-primary-tone-30: #53358b;
+  --color-primary-tone-40: #6c4ea5;
+  --color-primary-tone-50: #8567c0;
+  --color-primary-tone-60: #a080dc;
+  --color-primary-tone-70: #bb9bf9;
+  --color-primary-tone-80: #d3bbff;
+  --color-primary-tone-90: #ebddff;
+  --color-primary-tone-95: #f7edff;
+  --color-primary-tone-99: #fffbff;
+  --color-primary-tone-100: #ffffff;
+  --color-neutral-tone-0: #000000;
+  --color-neutral-tone-10: #1d1b1e;
+  --color-neutral-tone-20: #323033;
+  --color-neutral-tone-30: #48464a;
+  --color-neutral-tone-40: #605d61;
+  --color-neutral-tone-50: #79767a;
+  --color-neutral-tone-60: #938f94;
+  --color-neutral-tone-70: #aeaaae;
+  --color-neutral-tone-80: #cac5ca;
+  --color-neutral-tone-90: #e6e1e6;
+  --color-neutral-tone-95: #f5eff4;
+  --color-neutral-tone-99: #fffbff;
+  --color-neutral-tone-100: #ffffff;
+  --color-neutral-variant-tone-0: #000000;
+  --color-neutral-variant-tone-10: #1d1a22;
+  --color-neutral-variant-tone-20: #322f37;
+  --color-neutral-variant-tone-30: #49454e;
+  --color-neutral-variant-tone-40: #615d66;
+  --color-neutral-variant-tone-50: #7a757f;
+  --color-neutral-variant-tone-60: #948f99;
+  --color-neutral-variant-tone-70: #afa9b4;
+  --color-neutral-variant-tone-80: #cbc4cf;
+  --color-neutral-variant-tone-90: #e7e0eb;
+  --color-neutral-variant-tone-95: #f6eefa;
+  --color-neutral-variant-tone-99: #fffbff;
+  --color-neutral-variant-tone-100: #ffffff;
+}
