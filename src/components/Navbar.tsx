@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const services = [
   { name: "Travel Forex", href: "/services/travel-forex" },
@@ -64,6 +65,7 @@ export default function Navbar() {
 
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-2">
+            <ThemeToggle />
             <Link href="/quote" className="px-3 py-2 text-[13px] font-medium text-primary hover:text-on-primary-container transition-colors">
               Get a quote
             </Link>

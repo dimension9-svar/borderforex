@@ -12,6 +12,10 @@ import {
 import AnimatedSection from "@/components/AnimatedSection";
 import HeroCalculator from "@/components/HeroCalculator";
 import ServiceCard from "@/components/ServiceCard";
+import CountUp from "@/components/CountUp";
+import CurrencyTicker from "@/components/CurrencyTicker";
+import ParallaxBanner from "@/components/ParallaxBanner";
+import Testimonials from "@/components/Testimonials";
 
 const services = [
   { iconName: "Globe", title: "Travel Forex", description: "Buy and sell 30+ foreign currencies at competitive rates for international travel.", href: "/services/travel-forex" },
@@ -83,6 +87,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Currency ticker ── */}
+      <CurrencyTicker />
+
       {/* ── Stats ── */}
       <section className="border-b border-outline-variant/30 bg-surface-container-lowest">
         <div className="mx-auto max-w-[1120px] px-6 py-8">
@@ -91,10 +98,10 @@ export default function HomePage() {
               { value: "10+", label: "Years operating" },
               { value: "30+", label: "Currencies traded" },
               { value: "100+", label: "Transfer countries" },
-              { value: "<4hrs", label: "Avg. processing" },
+              { value: "4hrs", label: "Avg. processing" },
             ].map((stat) => (
               <div key={stat.label} className="text-center lg:px-6">
-                <div className="text-[24px] font-semibold tracking-tight text-on-surface">{stat.value}</div>
+                <CountUp value={stat.value} className="text-[24px] font-semibold tracking-tight text-on-surface" />
                 <div className="mt-0.5 text-[12px] text-on-surface-variant">{stat.label}</div>
               </div>
             ))}
@@ -126,27 +133,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Lifestyle banner ── */}
-      <section className="relative h-[280px] sm:h-[360px] lg:h-[420px] overflow-hidden bg-on-surface">
-        <Image
-          src="/card-lifestyle.png"
-          alt="Border Forex Visa card on slate surface with luxury watch and leather wallet"
-          fill
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 mx-auto max-w-[1120px] px-6 pb-8">
-          <AnimatedSection>
-            <p className="font-[family-name:var(--font-display)] text-[24px] sm:text-[32px] font-bold tracking-[-0.03em] text-white">
-              The card that crosses borders.
-            </p>
-            <p className="mt-1 text-[14px] text-white/60">
-              Multi-currency prepaid Visa. Lock in rates. Spend worldwide.
-            </p>
-          </AnimatedSection>
-        </div>
-      </section>
+      {/* ── Lifestyle banner (parallax) ── */}
+      <ParallaxBanner />
 
       {/* ── Why us ── */}
       <section className="py-20 lg:py-28 bg-surface-container-low">
@@ -184,6 +172,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── Testimonials ── */}
+      <Testimonials />
 
       {/* ── CTA ── */}
       <section className="py-20 lg:py-24 bg-primary-container">

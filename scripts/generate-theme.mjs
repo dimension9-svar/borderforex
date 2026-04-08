@@ -43,8 +43,8 @@ function tonalVars(palette, name, tones, indent = "  ") {
     .join("\n");
 }
 
-// Surface container tones per M3 spec
 const neutral = theme.palettes.neutral;
+
 const lightContainers = [
   ["surface-container-lowest", 100],
   ["surface-container-low", 96],
@@ -52,6 +52,7 @@ const lightContainers = [
   ["surface-container-high", 92],
   ["surface-container-highest", 90],
 ];
+
 const darkContainers = [
   ["surface-container-lowest", 4],
   ["surface-container-low", 10],
@@ -77,11 +78,19 @@ ${tonalVars(theme.palettes.primary, "primary-tone", [0, 10, 20, 30, 40, 50, 60, 
 ${tonalVars(theme.palettes.neutral, "neutral-tone", [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100])}
 ${tonalVars(theme.palettes.neutralVariant, "neutral-variant-tone", [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100])}
 }
+
+/* ── Dark Scheme (applied via .dark class) ── */
+.dark {
+${schemeToVars(theme.schemes.dark)}
+
+  /* ── Surface Containers (Dark) ── */
+${darkContainers.map(([name, tone]) => `  --color-${name}: ${hex(neutral.tone(tone))};`).join("\n")}
+}
 `;
 
 const outPath = resolve(__dirname, "../src/app/m3-tokens.css");
 writeFileSync(outPath, css, "utf-8");
-console.log(`✓ M3 tokens written to ${outPath}`);
-console.log(`  Seed: ${SEED}`);
-console.log(`  Primary: ${hex(theme.schemes.light.toJSON().primary)}`);
-console.log(`  Surface: ${hex(theme.schemes.light.toJSON().surface)}`);
+console.log("✓ M3 tokens written to " + outPath);
+console.log("  Seed: " + SEED);
+console.log("  Light primary: " + hex(theme.schemes.light.toJSON().primary));
+console.log("  Dark primary: " + hex(theme.schemes.dark.toJSON().primary));
