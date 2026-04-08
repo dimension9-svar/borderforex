@@ -2,11 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  Globe,
-  Send,
-  CreditCard,
-  Banknote,
-  Building2,
   Shield,
   Clock,
   Award,
@@ -16,13 +11,14 @@ import {
 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import HeroCalculator from "@/components/HeroCalculator";
+import ServiceCard from "@/components/ServiceCard";
 
 const services = [
-  { icon: Globe, title: "Travel Forex", description: "Buy and sell 30+ foreign currencies at competitive rates for international travel.", href: "/services/travel-forex" },
-  { icon: Send, title: "Money Transfer", description: "Send money to 100+ countries with same-day processing and transparent fees.", href: "/services/money-transfer" },
-  { icon: CreditCard, title: "Prepaid Travel Cards", description: "Lock in rates before you travel. Spend in local currency at 36M+ merchants worldwide.", href: "/services/prepaid-travel-cards" },
-  { icon: Banknote, title: "Foreign Banknotes", description: "Walk in, exchange, walk out. Major currencies in stock, no appointment needed.", href: "/services/foreign-banknotes" },
-  { icon: Building2, title: "Omnibus Facility", description: "Wholesale forex for bureaux, MTOs, and financial institutions. Custom rate structures.", href: "/services/omnibus-facility" },
+  { iconName: "Globe", title: "Travel Forex", description: "Buy and sell 30+ foreign currencies at competitive rates for international travel.", href: "/services/travel-forex" },
+  { iconName: "Send", title: "Money Transfer", description: "Send money to 100+ countries with same-day processing and transparent fees.", href: "/services/money-transfer" },
+  { iconName: "CreditCard", title: "Prepaid Travel Cards", description: "Lock in rates before you travel. Spend in local currency at 36M+ merchants worldwide.", href: "/services/prepaid-travel-cards" },
+  { iconName: "Banknote", title: "Foreign Banknotes", description: "Walk in, exchange, walk out. Major currencies in stock, no appointment needed.", href: "/services/foreign-banknotes" },
+  { iconName: "Building2", title: "Omnibus Facility", description: "Wholesale forex for bureaux, MTOs, and financial institutions. Custom rate structures.", href: "/services/omnibus-facility" },
 ];
 
 const trustPoints = [
@@ -114,20 +110,41 @@ export default function HomePage() {
             <h2 className="mt-2 text-[28px] sm:text-[32px] font-normal tracking-[-0.02em] text-on-surface">What we offer</h2>
           </AnimatedSection>
 
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {services.map((s, i) => (
-              <AnimatedSection key={s.title} delay={i * 0.03}>
-                <Link href={s.href} className="group flex flex-col h-full rounded-[var(--radius-lg)] bg-surface-container-lowest border border-outline-variant/30 p-6 hover:border-primary/30 hover:bg-primary-container/10 transition-all duration-200" style={{ boxShadow: "var(--shadow-level1)" }}>
-                  <s.icon className="h-5 w-5 text-primary" />
-                  <h3 className="mt-3 text-[15px] font-medium text-on-surface group-hover:text-primary transition-colors">{s.title}</h3>
-                  <p className="mt-1.5 text-[13px] text-on-surface-variant leading-[1.5] flex-1">{s.description}</p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-[12px] font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                    Learn more <ArrowRight className="h-3 w-3" />
-                  </span>
-                </Link>
+              <AnimatedSection key={s.title} delay={i * 0.04}>
+                <ServiceCard
+                  iconName={s.iconName}
+                  title={s.title}
+                  description={s.description}
+                  href={s.href}
+                  index={i}
+                />
               </AnimatedSection>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Lifestyle banner ── */}
+      <section className="relative h-[280px] sm:h-[360px] lg:h-[420px] overflow-hidden bg-on-surface">
+        <Image
+          src="/card-lifestyle.png"
+          alt="Border Forex Visa card on slate surface with luxury watch and leather wallet"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 mx-auto max-w-[1120px] px-6 pb-8">
+          <AnimatedSection>
+            <p className="font-[family-name:var(--font-display)] text-[24px] sm:text-[32px] font-bold tracking-[-0.03em] text-white">
+              The card that crosses borders.
+            </p>
+            <p className="mt-1 text-[14px] text-white/60">
+              Multi-currency prepaid Visa. Lock in rates. Spend worldwide.
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
