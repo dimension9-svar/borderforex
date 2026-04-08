@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import Logo from "@/components/Logo";
 
 const services = [
   { name: "Travel Forex", href: "/services/travel-forex" },
@@ -22,11 +21,9 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/80 backdrop-blur-xl border-b border-outline-variant/30">
       <div className="mx-auto max-w-[1120px] px-6">
         <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2.5">
-            <Logo size={28} />
-            <span className="text-[15px] font-semibold tracking-tight text-on-surface">
-              Border<span className="text-primary">Forex</span>
-            </span>
+          {/* Wordmark */}
+          <Link href="/" className="font-[family-name:var(--font-display)] text-[22px] font-bold tracking-[-0.04em] text-on-surface leading-none">
+            border<span className="text-primary">forex</span>
           </Link>
 
           {/* Desktop */}

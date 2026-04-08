@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
-import Logo from "@/components/Logo";
 
 const footerLinks = {
   services: [
@@ -25,11 +24,8 @@ export default function Footer() {
       <div className="mx-auto max-w-[1120px] px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           <div>
-            <Link href="/" className="flex items-center gap-2.5">
-              <Logo size={28} />
-              <span className="text-[15px] font-semibold tracking-tight text-on-surface">
-                Border<span className="text-primary">Forex</span>
-              </span>
+            <Link href="/" className="font-[family-name:var(--font-display)] text-[20px] font-bold tracking-[-0.04em] text-on-surface leading-none">
+              border<span className="text-primary">forex</span>
             </Link>
             <p className="mt-4 text-[13px] leading-relaxed text-on-surface-variant max-w-xs">
               Authorised dealer providing foreign exchange, international
