@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -76,12 +77,19 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-gray-900 via-[#0a1628] to-navy-dark">
-        <div className="absolute inset-0 opacity-[0.025]" style={{
-          backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-          backgroundSize: "48px 48px",
-        }} />
-        <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-cyan/[0.04] rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
+      <section className="relative overflow-hidden bg-gray-900">
+        {/* Background image */}
+        <Image
+          src="/hero-travel.jpg"
+          alt=""
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        {/* Dark overlay for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/85 to-gray-900/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
 
         <div className="relative mx-auto max-w-[1120px] px-6 py-20 sm:py-28 lg:py-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
