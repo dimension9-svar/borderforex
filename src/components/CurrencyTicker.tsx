@@ -1,25 +1,37 @@
 "use client";
 
+import { TrendingUp, TrendingDown } from "lucide-react";
+
 const pairs = [
-  { pair: "USD/ZAR", rate: "18.15", change: "+0.12" },
-  { pair: "EUR/ZAR", rate: "19.85", change: "-0.08" },
-  { pair: "GBP/ZAR", rate: "23.10", change: "+0.23" },
-  { pair: "AUD/ZAR", rate: "11.75", change: "+0.05" },
-  { pair: "CAD/ZAR", rate: "13.20", change: "-0.03" },
-  { pair: "CHF/ZAR", rate: "20.50", change: "+0.15" },
-  { pair: "JPY/ZAR", rate: "0.121", change: "-0.001" },
-  { pair: "AED/ZAR", rate: "4.94", change: "+0.02" },
-  { pair: "INR/ZAR", rate: "0.216", change: "+0.003" },
-  { pair: "CNY/ZAR", rate: "2.50", change: "-0.01" },
+  { from: "USD", to: "ZAR", flag: "🇺🇸", rate: "18.15", change: "+0.12", up: true },
+  { from: "EUR", to: "ZAR", flag: "🇪🇺", rate: "19.85", change: "-0.08", up: false },
+  { from: "GBP", to: "ZAR", flag: "🇬🇧", rate: "23.10", change: "+0.23", up: true },
+  { from: "AUD", to: "ZAR", flag: "🇦🇺", rate: "11.75", change: "+0.05", up: true },
+  { from: "CAD", to: "ZAR", flag: "🇨🇦", rate: "13.20", change: "-0.03", up: false },
+  { from: "CHF", to: "ZAR", flag: "🇨🇭", rate: "20.50", change: "+0.15", up: true },
+  { from: "JPY", to: "ZAR", flag: "🇯🇵", rate: "0.121", change: "-0.001", up: false },
+  { from: "AED", to: "ZAR", flag: "🇦🇪", rate: "4.94", change: "+0.02", up: true },
+  { from: "INR", to: "ZAR", flag: "🇮🇳", rate: "0.216", change: "+0.003", up: true },
+  { from: "CNY", to: "ZAR", flag: "🇨🇳", rate: "2.50", change: "-0.01", up: false },
 ];
 
-function TickerItem({ pair, rate, change }: { pair: string; rate: string; change: string }) {
-  const isUp = change.startsWith("+");
+function Chip({ from, flag, rate, change, up }: typeof pairs[number]) {
   return (
-    <span className="inline-flex items-center gap-3 px-5 text-[12px] whitespace-nowrap">
-      <span className="font-semibold text-on-surface">{pair}</span>
-      <span className="tabular-nums text-on-surface-variant">{rate}</span>
-      <span className={`tabular-nums ${isUp ? "text-[#10b981]" : "text-[#ef4444]"}`}>
+    <span
+      className="inline-flex items-center gap-2.5 mx-2 px-4 py-2 rounded-[var(--radius-xl)] bg-surface-container-lowest border border-outline-variant/20 whitespace-nowrap"
+      style={{ boxShadow: "var(--shadow-level1)" }}
+    >
+      <span className="text-[14px]">{flag}</span>
+      <span className="text-[13px] font-semibold text-on-surface font-[family-name:var(--font-display)] tracking-tight">
+        {from}<span className="text-on-surface-variant font-normal">/ZAR</span>
+      </span>
+      <span className="tabular-nums text-[13px] font-medium text-on-surface">{rate}</span>
+      <span className={`inline-flex items-center gap-0.5 tabular-nums text-[11px] font-medium px-1.5 py-0.5 rounded-[var(--radius-sm)] ${
+        up
+          ? "text-[#0d9668] bg-[#0d9668]/10"
+          : "text-[#dc2626] bg-[#dc2626]/10"
+      }`}>
+        {up ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
         {change}
       </span>
     </span>
@@ -27,14 +39,13 @@ function TickerItem({ pair, rate, change }: { pair: string; rate: string; change
 }
 
 export default function CurrencyTicker() {
-  // Duplicate for seamless loop
   const items = [...pairs, ...pairs];
 
   return (
-    <div className="overflow-hidden bg-surface-container-high/50 border-y border-outline-variant/20 py-2.5">
-      <div className="flex animate-[ticker_30s_linear_infinite]">
+    <div className="overflow-hidden py-4 bg-surface-container-low/50">
+      <div className="flex animate-[ticker_35s_linear_infinite] hover:[animation-play-state:paused]">
         {items.map((p, i) => (
-          <TickerItem key={`${p.pair}-${i}`} pair={p.pair} rate={p.rate} change={p.change} />
+          <Chip key={`${p.from}-${i}`} {...p} />
         ))}
       </div>
     </div>
