@@ -42,10 +42,10 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#191c1d]/30 to-transparent" />
 
         <div className="relative mx-auto max-w-[1120px] px-6 py-20 sm:py-28 lg:py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
             <div>
               <AnimatedSection>
-                <h1 className="text-[36px] sm:text-[44px] lg:text-[48px] font-normal tracking-[-0.03em] text-inverse-on-surface leading-[1.08]">
+                <h1 className="text-[28px] sm:text-[40px] lg:text-[48px] font-normal tracking-[-0.03em] text-inverse-on-surface leading-[1.08]">
                   Exchange currency at
                   <br />
                   <span className="font-semibold text-inverse-primary">rates you can verify.</span>
@@ -139,7 +139,7 @@ export default function HomePage() {
       {/* ── Why us ── */}
       <section className="py-20 lg:py-28 bg-surface-container-low">
         <div className="mx-auto max-w-[1120px] px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16">
             <div className="lg:col-span-2">
               <AnimatedSection>
                 <p className="text-[12px] font-medium uppercase tracking-widest text-primary">Why us</p>

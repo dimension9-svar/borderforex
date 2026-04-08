@@ -152,9 +152,9 @@ export default function QuoteCalculator() {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* Calculator Card */}
-      <div className="rounded-[var(--radius-lg)] border border-outline-variant-light bg-white overflow-hidden" style={{ boxShadow: "var(--shadow-md)" }}>
+      <div className="rounded-[var(--radius-lg)] border border-outline-variant/30 bg-surface-container-lowest overflow-hidden" style={{ boxShadow: "var(--shadow-level3)" }}>
         {/* Direction Toggle */}
-        <div className="flex border-b border-outline-variant-light">
+        <div className="flex border-b border-outline-variant/30">
           <button
             type="button"
             onClick={() => {
@@ -164,7 +164,7 @@ export default function QuoteCalculator() {
             }}
             className={`flex-1 py-3 text-[13px] font-semibold transition-colors ${
               direction === "buy"
-                ? "bg-cyan text-white"
+                ? "bg-primary text-on-primary"
                 : "bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:text-on-surface"
             }`}
           >
@@ -179,7 +179,7 @@ export default function QuoteCalculator() {
             }}
             className={`flex-1 py-3 text-[13px] font-semibold transition-colors ${
               direction === "sell"
-                ? "bg-cyan text-white"
+                ? "bg-primary text-on-primary"
                 : "bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:text-on-surface"
             }`}
           >
@@ -202,7 +202,7 @@ export default function QuoteCalculator() {
                     setToCurrency(fromCurrency);
                   }
                 }}
-                className="w-48 shrink-0 rounded-[var(--radius-md)] border border-outline-variant px-3 py-2.5 text-[13px] font-medium text-on-surface bg-white focus:border-cyan focus:ring-2 focus:ring-cyan/20 outline-none transition-all"
+                className="w-28 sm:w-48 shrink-0 rounded-[var(--radius-md)] border border-outline-variant px-3 py-2.5 text-[13px] font-medium text-on-surface bg-white focus:border-cyan focus:ring-2 focus:ring-cyan/20 outline-none transition-all"
               >
                 {allCurrencies.map((c) => (
                   <option key={c.code} value={c.code}>
@@ -228,7 +228,7 @@ export default function QuoteCalculator() {
             <button
               type="button"
               onClick={swap}
-              className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-outline-variant-light text-outline hover:border-cyan hover:text-primary hover:bg-cyan/5 transition-all"
+              className="inline-flex items-center justify-center h-9 w-9 rounded-[var(--radius-full)] border border-outline-variant/30 text-outline hover:border-primary hover:text-primary hover:bg-primary/5 transition-all"
               aria-label="Swap currencies"
             >
               <ArrowDownUp className="h-3.5 w-3.5" />
@@ -249,7 +249,7 @@ export default function QuoteCalculator() {
                     setFromCurrency(toCurrency);
                   }
                 }}
-                className="w-48 shrink-0 rounded-[var(--radius-md)] border border-outline-variant px-3 py-2.5 text-[13px] font-medium text-on-surface bg-white focus:border-cyan focus:ring-2 focus:ring-cyan/20 outline-none transition-all"
+                className="w-28 sm:w-48 shrink-0 rounded-[var(--radius-md)] border border-outline-variant px-3 py-2.5 text-[13px] font-medium text-on-surface bg-white focus:border-cyan focus:ring-2 focus:ring-cyan/20 outline-none transition-all"
               >
                 {allCurrencies.map((c) => (
                   <option key={c.code} value={c.code}>
@@ -257,7 +257,7 @@ export default function QuoteCalculator() {
                   </option>
                 ))}
               </select>
-              <div className="flex-1 rounded-[var(--radius-md)] border border-outline-variant-light bg-surface-container-low px-4 py-2.5 text-[18px] font-semibold text-on-surface tabular-nums">
+              <div className="flex-1 rounded-[var(--radius-md)] border border-outline-variant/30 bg-surface-container-low px-4 py-2.5 text-[18px] font-semibold text-on-surface tabular-nums">
                 {convertedAmount
                   ? convertedAmount.toLocaleString(undefined, {
                       minimumFractionDigits: 2,
@@ -270,7 +270,7 @@ export default function QuoteCalculator() {
 
           {/* Rate Display */}
           {rate && fromCurrency !== toCurrency && (
-            <div className="flex items-center gap-2 rounded-[var(--radius-md)] bg-cyan/[0.04] border border-cyan/10 px-4 py-2.5">
+            <div className="flex items-center gap-2 rounded-[var(--radius-md)] bg-primary/[0.04] border border-primary/10 px-4 py-2.5">
               <TrendingUp className="h-3.5 w-3.5 text-primary shrink-0" />
               <span className="text-[13px] text-on-surface-variant">
                 <span className="font-semibold text-on-surface">Indicative rate:</span>{" "}
@@ -295,7 +295,7 @@ export default function QuoteCalculator() {
       </div>
 
       {/* Contact Details */}
-      <div className="rounded-[var(--radius-lg)] border border-outline-variant-light bg-white p-6 lg:p-8 space-y-4" style={{ boxShadow: "var(--shadow-md)" }}>
+      <div className="rounded-[var(--radius-lg)] border border-outline-variant/30 bg-surface-container-lowest p-4 sm:p-6 lg:p-8 space-y-4" style={{ boxShadow: "var(--shadow-level3)" }}>
         <div>
           <h3 className="text-[17px] font-bold text-on-surface">Request a Live Rate</h3>
           <p className="text-[13px] text-on-surface-variant mt-0.5">
@@ -330,7 +330,7 @@ export default function QuoteCalculator() {
         <button
           type="submit"
           disabled={status === "sending" || !amount || fromCurrency === toCurrency}
-          className="inline-flex items-center justify-center gap-2 w-full rounded-lg bg-cyan px-6 py-3 text-[14px] font-semibold text-white shadow-lg shadow-cyan/20 hover:bg-cyan-dark disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:scale-[1.01] active:scale-[0.99]"
+          className="inline-flex items-center justify-center gap-2 w-full rounded-[var(--radius-xl)] bg-primary px-6 py-3 text-[14px] font-medium text-on-primary hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-opacity"
         >
           {status === "sending" ? (
             <><Loader2 className="h-4 w-4 animate-spin" /> Submitting...</>

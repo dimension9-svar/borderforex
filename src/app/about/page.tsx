@@ -104,7 +104,7 @@ export default function AboutPage() {
       {/* Stats */}
       <section className="py-16 bg-secondary-container">
         <div className="mx-auto max-w-[1120px] px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 text-center">
             {[
               { icon: Clock, value: "10+", label: "Years operating" },
               { icon: Users, value: "50K+", label: "Clients served" },

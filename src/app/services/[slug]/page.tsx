@@ -221,13 +221,13 @@ export default async function ServicePage({
       {/* Content */}
       <section className="py-20 lg:py-28 bg-surface">
         <div className="mx-auto max-w-[1120px] px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
             {/* Main */}
             <div className="lg:col-span-2 space-y-14">
               <AnimatedSection>
                 <div className="space-y-3">
                   {service.description.map((p, i) => (
-                    <p key={i} className="text-[15px] text-label-secondary leading-relaxed">
+                    <p key={i} className="text-[15px] text-on-surface-variant leading-relaxed">
                       {p}
                     </p>
                   ))}
@@ -235,37 +235,37 @@ export default async function ServicePage({
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="text-[20px] font-medium text-label mb-4">
+                <h2 className="text-[20px] font-medium text-on-surface mb-4">
                   Service Features
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {service.features.map((f) => (
                     <div key={f} className="flex items-start gap-2.5">
                       <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                      <span className="text-[13px] text-label-secondary">{f}</span>
+                      <span className="text-[13px] text-on-surface-variant">{f}</span>
                     </div>
                   ))}
                 </div>
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="text-[20px] font-medium text-label mb-4">
+                <h2 className="text-[20px] font-medium text-on-surface mb-4">
                   How It Works
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {service.process.map((step, i) => (
                     <div
                       key={step.step}
-                      className="relative rounded-2xl bg-white border border-separator-light p-5"
+                      className="relative rounded-[var(--radius-lg)] bg-surface-container-lowest border border-outline-variant/30 p-5"
                       style={{ boxShadow: "var(--shadow-level1)" }}
                     >
                       <div className="absolute -top-2.5 left-4 inline-flex items-center justify-center h-5 w-5 rounded-[var(--radius-full)] bg-primary text-on-primary text-[10px] font-bold">
                         {i + 1}
                       </div>
-                      <h3 className="text-[13px] font-semibold text-label mt-0.5">
+                      <h3 className="text-[13px] font-semibold text-on-surface mt-0.5">
                         {step.step}
                       </h3>
-                      <p className="mt-1 text-[12px] text-label-secondary leading-relaxed">
+                      <p className="mt-1 text-[12px] text-on-surface-variant leading-relaxed">
                         {step.description}
                       </p>
                     </div>
@@ -278,18 +278,18 @@ export default async function ServicePage({
             <div className="space-y-6">
               <AnimatedSection>
                 <div
-                  className="rounded-2xl bg-white border border-separator-light p-6"
+                  className="rounded-[var(--radius-lg)] bg-surface-container-lowest border border-outline-variant/30 p-6"
                   style={{ boxShadow: "var(--shadow-level1)" }}
                 >
                   <div className="flex items-center gap-2 mb-3">
                     <FileText className="h-4 w-4 text-secondary" />
-                    <h3 className="text-[13px] font-semibold text-label">
+                    <h3 className="text-[13px] font-semibold text-on-surface">
                       Requirements
                     </h3>
                   </div>
                   <ul className="space-y-2.5">
                     {service.requirements.map((r) => (
-                      <li key={r} className="flex items-start gap-2 text-[13px] text-label-secondary">
+                      <li key={r} className="flex items-start gap-2 text-[13px] text-on-surface-variant">
                         <div className="h-1 w-1 rounded-[var(--radius-full)] bg-secondary mt-1.5 shrink-0" />
                         {r}
                       </li>

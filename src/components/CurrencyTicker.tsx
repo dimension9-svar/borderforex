@@ -18,7 +18,7 @@ const pairs = [
 function Chip({ from, flag, rate, change, up }: typeof pairs[number]) {
   return (
     <span
-      className="inline-flex items-center gap-2.5 mx-2 px-4 py-2 rounded-[var(--radius-xl)] bg-surface-container-lowest border border-outline-variant/20 whitespace-nowrap"
+      className="inline-flex items-center gap-2 sm:gap-2.5 mx-1.5 sm:mx-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-[var(--radius-xl)] bg-surface-container-lowest border border-outline-variant/20 whitespace-nowrap"
       style={{ boxShadow: "var(--shadow-level1)" }}
     >
       <span className="text-[14px]">{flag}</span>

@@ -16,7 +16,7 @@ export default function ParallaxBanner() {
 
   return (
     <section ref={ref} className="relative h-[280px] sm:h-[360px] lg:h-[420px] overflow-hidden bg-on-surface">
-      <motion.div className="absolute inset-[-15%]" style={{ y }}>
+      <motion.div className="absolute inset-[-8%] sm:inset-[-15%]" style={{ y }}>
         <Image
           src="/card-lifestyle.png"
           alt="Border Forex Visa card on slate surface with luxury watch and leather wallet"

@@ -32,7 +32,7 @@ export default function ContactPage() {
 
       <section className="py-20 lg:py-28 bg-surface">
         <div className="mx-auto max-w-[1120px] px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16">
             <div className="lg:col-span-3">
               <AnimatedSection>
                 <h2 className="text-[17px] font-medium text-on-surface">Send us a message</h2>
