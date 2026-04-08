@@ -43,17 +43,17 @@ export default function ContactPage() {
   return (
     <>
       {/* Header */}
-      <section className="bg-gradient-to-br from-midnight via-navy to-navy-dark py-24 lg:py-28">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="bg-gradient-to-b from-gray-900 via-[#0a1628] to-navy-dark py-24 lg:py-28">
+        <div className="mx-auto max-w-[1120px] px-6">
           <AnimatedSection>
-            <div className="max-w-2xl">
-              <p className="text-sm font-semibold uppercase tracking-wider text-cyan">
+            <div className="max-w-xl">
+              <p className="text-[12px] font-semibold uppercase tracking-widest text-cyan">
                 Contact Us
               </p>
-              <h1 className="mt-3 text-4xl sm:text-5xl font-bold tracking-tight text-white">
+              <h1 className="mt-2 text-[40px] sm:text-[48px] font-bold tracking-tight text-white leading-[1.05]">
                 Let&apos;s Talk Currency
               </h1>
-              <p className="mt-5 text-lg text-slate-300 leading-relaxed">
+              <p className="mt-4 text-[17px] text-gray-400 leading-relaxed">
                 Have a question about our services? Need a quote? Our team is
                 ready to help you with all your foreign exchange needs.
               </p>
@@ -63,51 +63,45 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Content */}
-      <section className="py-24 lg:py-32 bg-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
+      <section className="py-24 lg:py-32 bg-surface">
+        <div className="mx-auto max-w-[1120px] px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
             {/* Form */}
             <div className="lg:col-span-3">
               <AnimatedSection>
-                <h2 className="text-2xl font-bold text-midnight">
+                <h2 className="text-[20px] font-bold text-label">
                   Send Us a Message
                 </h2>
-                <p className="mt-2 text-slate-500">
+                <p className="mt-1.5 text-[14px] text-label-secondary">
                   Fill out the form below and we&apos;ll get back to you within one
                   business day.
                 </p>
-                <div className="mt-8">
+                <div className="mt-6">
                   <ContactForm />
                 </div>
               </AnimatedSection>
             </div>
 
             {/* Contact Details */}
-            <div className="lg:col-span-2 space-y-8">
+            <div className="lg:col-span-2 space-y-6">
               {contactDetails.map((detail, i) => (
-                <AnimatedSection key={detail.title} delay={i * 0.1}>
-                  <div className="flex gap-4">
-                    <div className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-cyan/10 text-cyan shrink-0">
-                      <detail.icon className="h-5 w-5" />
+                <AnimatedSection key={detail.title} delay={i * 0.08}>
+                  <div className="flex gap-3">
+                    <div className="inline-flex items-center justify-center h-9 w-9 rounded-lg bg-fill text-cyan shrink-0">
+                      <detail.icon className="h-[18px] w-[18px]" />
                     </div>
                     <div>
-                      <h3 className="text-sm font-semibold text-midnight">
+                      <h3 className="text-[13px] font-semibold text-label">
                         {detail.title}
                       </h3>
-                      <div className="mt-1.5 space-y-0.5">
+                      <div className="mt-1 space-y-0.5">
                         {detail.lines.map((line) =>
                           detail.href ? (
-                            <a
-                              key={line}
-                              href={detail.href}
-                              className="block text-sm text-slate-500 hover:text-cyan transition-colors"
-                            >
+                            <a key={line} href={detail.href} className="block text-[13px] text-label-secondary hover:text-cyan transition-colors">
                               {line}
                             </a>
                           ) : (
-                            <p key={line} className="text-sm text-slate-500">
-                              {line}
-                            </p>
+                            <p key={line} className="text-[13px] text-label-secondary">{line}</p>
                           )
                         )}
                       </div>
@@ -116,12 +110,15 @@ export default function ContactPage() {
                 </AnimatedSection>
               ))}
 
-              {/* Map Placeholder */}
-              <AnimatedSection delay={0.4}>
-                <div className="rounded-2xl bg-slate-100 border border-slate-200 overflow-hidden aspect-[4/3] flex items-center justify-center">
+              {/* Map */}
+              <AnimatedSection delay={0.32}>
+                <div
+                  className="rounded-2xl bg-white border border-separator-light overflow-hidden aspect-[4/3] flex items-center justify-center"
+                  style={{ boxShadow: "var(--shadow-sm)" }}
+                >
                   <div className="text-center p-6">
-                    <MapPin className="h-8 w-8 text-slate-300 mx-auto mb-3" />
-                    <p className="text-sm text-slate-400">
+                    <MapPin className="h-6 w-6 text-label-tertiary mx-auto mb-2" />
+                    <p className="text-[13px] text-label-secondary">
                       Lombardy Business Park
                       <br />
                       Pretoria, South Africa
@@ -130,7 +127,7 @@ export default function ContactPage() {
                       href="https://maps.google.com/?q=Lombardy+Business+Park+Pretoria"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block mt-3 text-sm font-medium text-cyan hover:text-cyan-dark transition-colors"
+                      className="inline-block mt-2 text-[13px] font-medium text-cyan hover:text-cyan-dark transition-colors"
                     >
                       Open in Google Maps
                     </a>

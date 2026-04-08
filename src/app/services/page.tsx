@@ -22,7 +22,7 @@ const services = [
     title: "Travel Forex",
     slug: "travel-forex",
     description:
-      "Planning an international trip? We offer competitive exchange rates for buying and selling foreign currency. Whether you need Dollars, Euros, Pounds, or any other major currency, our team ensures you get the best value for your money.",
+      "Planning an international trip? We offer competitive exchange rates for buying and selling foreign currency. Whether you need Dollars, Euros, Pounds, or any other major currency, our team ensures you get the best value.",
     features: [
       "Competitive exchange rates",
       "All major world currencies",
@@ -35,12 +35,12 @@ const services = [
     title: "Money Transfer",
     slug: "money-transfer",
     description:
-      "Send and receive money internationally with confidence. Our secure transfer corridors connect South Africa to the world, with fast processing times and transparent fee structures.",
+      "Send and receive money internationally with confidence. Our secure transfer corridors connect South Africa to the world, with fast processing and transparent fee structures.",
     features: [
       "Global transfer network",
       "Transparent pricing",
       "Fast processing times",
-      "Secure SARB-compliant transfers",
+      "SARB-compliant transfers",
     ],
   },
   {
@@ -48,7 +48,7 @@ const services = [
     title: "Prepaid Travel Cards",
     slug: "prepaid-travel-cards",
     description:
-      "Travel smart with our multi-currency prepaid cards. Load your card with the currencies you need before you depart, lock in rates, and spend abroad with the convenience of a card.",
+      "Travel smart with our multi-currency prepaid cards. Load your card with the currencies you need, lock in rates, and spend abroad with the convenience of a card.",
     features: [
       "Multi-currency support",
       "Lock in exchange rates",
@@ -61,12 +61,12 @@ const services = [
     title: "Foreign Banknotes",
     slug: "foreign-banknotes",
     description:
-      "Sometimes you need cash in hand. We stock a wide range of foreign banknotes, available for immediate purchase. Walk in, exchange, and walk out ready for your journey.",
+      "Sometimes you need cash in hand. We stock a wide range of foreign banknotes, available for immediate purchase. Walk in, exchange, and walk out ready.",
     features: [
       "Wide currency selection",
       "Walk-in availability",
       "Competitive cash rates",
-      "Small and large denominations",
+      "All denominations",
     ],
   },
   {
@@ -74,7 +74,7 @@ const services = [
     title: "Omnibus Facility",
     slug: "omnibus-facility",
     description:
-      "Our specialised omnibus facility caters to businesses and financial institutions that require bulk foreign exchange services. Tailored solutions for high-volume currency management.",
+      "Our specialised omnibus facility caters to businesses and financial institutions requiring bulk forex services. Tailored solutions for high-volume currency management.",
     features: [
       "Bulk currency solutions",
       "Institutional-grade service",
@@ -88,17 +88,17 @@ export default function ServicesPage() {
   return (
     <>
       {/* Header */}
-      <section className="bg-gradient-to-br from-midnight via-navy to-navy-dark py-24 lg:py-28">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="bg-gradient-to-b from-gray-900 via-[#0a1628] to-navy-dark py-24 lg:py-28">
+        <div className="mx-auto max-w-[1120px] px-6">
           <AnimatedSection>
-            <div className="max-w-2xl">
-              <p className="text-sm font-semibold uppercase tracking-wider text-cyan">
+            <div className="max-w-xl">
+              <p className="text-[12px] font-semibold uppercase tracking-widest text-cyan">
                 Our Services
               </p>
-              <h1 className="mt-3 text-4xl sm:text-5xl font-bold tracking-tight text-white">
+              <h1 className="mt-2 text-[40px] sm:text-[48px] font-bold tracking-tight text-white leading-[1.05]">
                 Complete Forex Solutions
               </h1>
-              <p className="mt-5 text-lg text-slate-300 leading-relaxed">
+              <p className="mt-4 text-[17px] text-gray-400 leading-relaxed">
                 From individual travellers to large financial institutions, we
                 provide a comprehensive suite of foreign exchange services
                 tailored to your needs.
@@ -108,46 +108,46 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-24 lg:py-32 bg-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 space-y-12">
+      {/* Services */}
+      <section className="py-24 lg:py-32 bg-surface">
+        <div className="mx-auto max-w-[1120px] px-6 space-y-4">
           {services.map((service, i) => (
-            <AnimatedSection key={service.slug} delay={i * 0.05}>
-              <div className="group rounded-2xl border border-slate-200 p-8 lg:p-10 hover:border-cyan/30 hover:shadow-lg hover:shadow-cyan/5 transition-all">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            <AnimatedSection key={service.slug} delay={i * 0.04}>
+              <div
+                className="group rounded-2xl bg-white border border-separator-light p-7 lg:p-8 hover:border-cyan/20 hover:shadow-lg transition-all duration-300"
+                style={{ boxShadow: "var(--shadow-sm)" }}
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
                   <div className="lg:col-span-2">
-                    <div className="flex items-center gap-4">
-                      <div className="inline-flex items-center justify-center h-12 w-12 rounded-xl bg-cyan/10 text-cyan">
-                        <service.icon className="h-6 w-6" />
+                    <div className="flex items-center gap-3">
+                      <div className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-fill text-cyan group-hover:bg-cyan group-hover:text-white transition-all duration-300">
+                        <service.icon className="h-5 w-5" />
                       </div>
-                      <h2 className="text-xl font-bold text-midnight">
+                      <h2 className="text-[18px] font-bold text-label">
                         {service.title}
                       </h2>
                     </div>
-                    <p className="mt-4 text-slate-500 leading-relaxed">
+                    <p className="mt-3 text-[14px] text-label-secondary leading-relaxed">
                       {service.description}
                     </p>
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-3">
+                    <h3 className="text-[11px] font-semibold uppercase tracking-widest text-label-tertiary mb-3">
                       Key Features
                     </h3>
-                    <ul className="space-y-2.5">
+                    <ul className="space-y-2">
                       {service.features.map((feature) => (
-                        <li
-                          key={feature}
-                          className="flex items-center gap-2.5 text-sm text-slate-600"
-                        >
-                          <div className="h-1.5 w-1.5 rounded-full bg-cyan shrink-0" />
+                        <li key={feature} className="flex items-center gap-2 text-[13px] text-label-secondary">
+                          <div className="h-1 w-1 rounded-full bg-cyan shrink-0" />
                           {feature}
                         </li>
                       ))}
                     </ul>
                     <Link
                       href={`/services/${service.slug}`}
-                      className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-cyan hover:text-cyan-dark transition-colors"
+                      className="inline-flex items-center gap-1 mt-4 text-[13px] font-semibold text-cyan hover:text-cyan-dark transition-colors"
                     >
-                      Learn more <ArrowRight className="h-3.5 w-3.5" />
+                      Learn more <ArrowRight className="h-3 w-3" />
                     </Link>
                   </div>
                 </div>
@@ -158,23 +158,29 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
+      <section className="py-20 bg-fill">
+        <div className="mx-auto max-w-[1120px] px-6 text-center">
           <AnimatedSection>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-midnight">
+            <h2 className="text-[24px] sm:text-[28px] font-bold tracking-tight text-label">
               Not sure which service is right for you?
             </h2>
-            <p className="mt-4 text-lg text-slate-500 max-w-xl mx-auto">
+            <p className="mt-3 text-[16px] text-label-secondary max-w-lg mx-auto">
               Our team is here to guide you. Get in touch and we&apos;ll help you
               find the perfect solution.
             </p>
-            <div className="mt-8">
+            <div className="mt-6 flex gap-3 justify-center">
+              <Link
+                href="/quote"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan px-6 py-3 text-[14px] font-semibold text-white shadow-lg shadow-cyan/20 hover:bg-cyan-dark transition-all hover:scale-[1.02] active:scale-[0.98]"
+              >
+                Get a Quote
+                <ArrowRight className="h-4 w-4" />
+              </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-cyan/25 hover:bg-cyan-dark transition-all"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-separator px-6 py-3 text-[14px] font-semibold text-label hover:bg-fill transition-all"
               >
                 Talk to Us
-                <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </AnimatedSection>

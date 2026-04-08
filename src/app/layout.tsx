@@ -6,6 +6,7 @@ import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -35,7 +36,7 @@ export default function RootLayout({
     <html lang="en" className={inter.className}>
       <body className="min-h-screen flex flex-col">
         <Navbar />
-        <main className="flex-1 pt-18">{children}</main>
+        <main className="flex-1 pt-12">{children}</main>
         <Footer />
       </body>
     </html>

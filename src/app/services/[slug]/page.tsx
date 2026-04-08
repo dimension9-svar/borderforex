@@ -61,7 +61,7 @@ const serviceData: Record<string, ServiceData> = {
     tagline: "Fast, secure international transfers",
     description: [
       "Whether you're sending money to family abroad or receiving international payments, Border Forex provides fast and secure money transfer services through established global corridors.",
-      "Our transfers are fully compliant with South African Reserve Bank regulations, ensuring your money moves safely and transparently across borders. We handle all the regulatory paperwork so you can focus on what matters.",
+      "Our transfers are fully compliant with South African Reserve Bank regulations, ensuring your money moves safely and transparently across borders.",
     ],
     features: [
       "Global transfer network spanning 100+ countries",
@@ -184,10 +184,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = serviceData[slug];
   if (!service) return {};
-  return {
-    title: service.title,
-    description: service.tagline,
-  };
+  return { title: service.title, description: service.tagline };
 }
 
 export default async function ServicePage({
@@ -204,25 +201,25 @@ export default async function ServicePage({
   return (
     <>
       {/* Header */}
-      <section className="bg-gradient-to-br from-midnight via-navy to-navy-dark py-24 lg:py-28">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="bg-gradient-to-b from-gray-900 via-[#0a1628] to-navy-dark py-24 lg:py-28">
+        <div className="mx-auto max-w-[1120px] px-6">
           <AnimatedSection>
             <Link
               href="/services"
-              className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-cyan transition-colors mb-8"
+              className="inline-flex items-center gap-1 text-[13px] text-gray-500 hover:text-cyan transition-colors mb-6"
             >
-              <ArrowLeft className="h-3.5 w-3.5" />
+              <ArrowLeft className="h-3 w-3" />
               All Services
             </Link>
-            <div className="flex items-center gap-4 mb-4">
-              <div className="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-cyan/20 text-cyan">
-                <Icon className="h-7 w-7" />
+            <div className="flex items-center gap-3 mb-3">
+              <div className="inline-flex items-center justify-center h-12 w-12 rounded-2xl bg-cyan/15 text-cyan">
+                <Icon className="h-6 w-6" />
               </div>
-              <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
+              <h1 className="text-[36px] sm:text-[44px] font-bold tracking-tight text-white">
                 {service.title}
               </h1>
             </div>
-            <p className="text-xl text-slate-300 max-w-2xl">
+            <p className="text-[17px] text-gray-400 max-w-xl">
               {service.tagline}
             </p>
           </AnimatedSection>
@@ -230,58 +227,53 @@ export default async function ServicePage({
       </section>
 
       {/* Content */}
-      <section className="py-24 lg:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
-            {/* Main Content */}
-            <div className="lg:col-span-2 space-y-16">
-              {/* Description */}
+      <section className="py-24 lg:py-32 bg-surface">
+        <div className="mx-auto max-w-[1120px] px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+            {/* Main */}
+            <div className="lg:col-span-2 space-y-14">
               <AnimatedSection>
-                <div className="space-y-4">
-                  {service.description.map((paragraph, i) => (
-                    <p
-                      key={i}
-                      className="text-lg text-slate-600 leading-relaxed"
-                    >
-                      {paragraph}
+                <div className="space-y-3">
+                  {service.description.map((p, i) => (
+                    <p key={i} className="text-[15px] text-label-secondary leading-relaxed">
+                      {p}
                     </p>
                   ))}
                 </div>
               </AnimatedSection>
 
-              {/* Features */}
               <AnimatedSection>
-                <h2 className="text-2xl font-bold text-midnight mb-6">
+                <h2 className="text-[20px] font-bold text-label mb-5">
                   Service Features
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {service.features.map((feature) => (
-                    <div key={feature} className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-cyan mt-0.5 shrink-0" />
-                      <span className="text-sm text-slate-600">{feature}</span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {service.features.map((f) => (
+                    <div key={f} className="flex items-start gap-2.5">
+                      <CheckCircle2 className="h-4 w-4 text-cyan mt-0.5 shrink-0" />
+                      <span className="text-[13px] text-label-secondary">{f}</span>
                     </div>
                   ))}
                 </div>
               </AnimatedSection>
 
-              {/* Process */}
               <AnimatedSection>
-                <h2 className="text-2xl font-bold text-midnight mb-6">
+                <h2 className="text-[20px] font-bold text-label mb-5">
                   How It Works
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {service.process.map((step, i) => (
                     <div
                       key={step.step}
-                      className="relative rounded-xl border border-slate-200 p-6"
+                      className="relative rounded-2xl bg-white border border-separator-light p-5"
+                      style={{ boxShadow: "var(--shadow-sm)" }}
                     >
-                      <div className="absolute -top-3 left-5 inline-flex items-center justify-center h-6 w-6 rounded-full bg-cyan text-white text-xs font-bold">
+                      <div className="absolute -top-2.5 left-4 inline-flex items-center justify-center h-5 w-5 rounded-full bg-cyan text-white text-[10px] font-bold">
                         {i + 1}
                       </div>
-                      <h3 className="text-sm font-semibold text-midnight mt-1">
+                      <h3 className="text-[13px] font-semibold text-label mt-0.5">
                         {step.step}
                       </h3>
-                      <p className="mt-1.5 text-sm text-slate-500">
+                      <p className="mt-1 text-[12px] text-label-secondary leading-relaxed">
                         {step.description}
                       </p>
                     </div>
@@ -291,48 +283,45 @@ export default async function ServicePage({
             </div>
 
             {/* Sidebar */}
-            <div className="space-y-8">
-              {/* Requirements Card */}
+            <div className="space-y-6">
               <AnimatedSection>
-                <div className="rounded-2xl bg-slate-50 border border-slate-200 p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <FileText className="h-5 w-5 text-navy" />
-                    <h3 className="text-sm font-semibold text-midnight">
+                <div
+                  className="rounded-2xl bg-white border border-separator-light p-6"
+                  style={{ boxShadow: "var(--shadow-sm)" }}
+                >
+                  <div className="flex items-center gap-2 mb-3">
+                    <FileText className="h-4 w-4 text-navy" />
+                    <h3 className="text-[13px] font-semibold text-label">
                       Requirements
                     </h3>
                   </div>
-                  <ul className="space-y-3">
-                    {service.requirements.map((req) => (
-                      <li
-                        key={req}
-                        className="flex items-start gap-2.5 text-sm text-slate-600"
-                      >
-                        <div className="h-1.5 w-1.5 rounded-full bg-navy mt-1.5 shrink-0" />
-                        {req}
+                  <ul className="space-y-2.5">
+                    {service.requirements.map((r) => (
+                      <li key={r} className="flex items-start gap-2 text-[13px] text-label-secondary">
+                        <div className="h-1 w-1 rounded-full bg-navy mt-1.5 shrink-0" />
+                        {r}
                       </li>
                     ))}
                   </ul>
                 </div>
               </AnimatedSection>
 
-              {/* CTA Card */}
-              <AnimatedSection delay={0.1}>
-                <div className="rounded-2xl bg-gradient-to-br from-navy to-midnight p-6 text-white">
-                  <h3 className="text-lg font-bold">Ready to get started?</h3>
-                  <p className="mt-2 text-sm text-slate-300">
-                    Contact our team for a personalised quote and expert
-                    guidance.
+              <AnimatedSection delay={0.08}>
+                <div className="rounded-2xl bg-gradient-to-br from-navy to-gray-900 p-6 text-white">
+                  <h3 className="text-[17px] font-bold">Ready to get started?</h3>
+                  <p className="mt-1.5 text-[13px] text-gray-400">
+                    Contact our team for a personalised quote and expert guidance.
                   </p>
                   <Link
-                    href="/contact"
-                    className="inline-flex items-center justify-center gap-2 mt-5 w-full rounded-full bg-cyan px-5 py-3 text-sm font-semibold text-white hover:bg-cyan-dark transition-colors"
+                    href="/quote"
+                    className="inline-flex items-center justify-center gap-2 mt-4 w-full rounded-full bg-cyan px-5 py-2.5 text-[13px] font-semibold text-white hover:bg-cyan-dark transition-all"
                   >
                     Get a Quote
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                   <a
                     href="mailto:info@borderforex.co.za"
-                    className="block mt-3 text-center text-sm text-slate-400 hover:text-cyan transition-colors"
+                    className="block mt-2 text-center text-[12px] text-gray-500 hover:text-cyan transition-colors"
                   >
                     info@borderforex.co.za
                   </a>
