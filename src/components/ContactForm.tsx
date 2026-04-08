@@ -13,7 +13,7 @@ const serviceOptions = [
 ];
 
 const inputClass =
-  "w-full rounded-xl border border-separator bg-white px-4 py-2.5 text-[14px] text-label placeholder:text-label-tertiary focus:border-cyan focus:ring-2 focus:ring-cyan/20 outline-none transition-all";
+  "w-full rounded-lg border border-separator bg-white px-3.5 py-2.5 text-[14px] text-label placeholder:text-label-tertiary focus:border-cyan focus:ring-2 focus:ring-cyan/15 outline-none transition-all";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
@@ -26,17 +26,13 @@ export default function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div className="rounded-2xl border border-green-200 bg-green-50 p-10 text-center">
-        <CheckCircle2 className="h-10 w-10 text-green-500 mx-auto mb-3" />
-        <h3 className="text-[17px] font-semibold text-label">Message Sent</h3>
-        <p className="mt-1.5 text-[14px] text-label-secondary">
-          Thank you for reaching out. Our team will get back to you within one
-          business day.
+      <div className="rounded-xl border border-green-200 bg-green-50 p-8 text-center">
+        <CheckCircle2 className="h-8 w-8 text-success mx-auto mb-3" />
+        <h3 className="text-[16px] font-medium text-label">Message sent</h3>
+        <p className="mt-1 text-[14px] text-label-secondary">
+          We&apos;ll respond within one business day.
         </p>
-        <button
-          onClick={() => setStatus("idle")}
-          className="mt-4 text-[13px] font-medium text-cyan hover:text-cyan-dark transition-colors"
-        >
+        <button onClick={() => setStatus("idle")} className="mt-4 text-[13px] font-medium text-cyan hover:text-cyan-dark transition-colors">
           Send another message
         </button>
       </div>
@@ -47,74 +43,42 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="firstName" className="block text-[13px] font-medium text-label mb-1">
-            First Name
-          </label>
+          <label htmlFor="firstName" className="block text-[13px] font-medium text-label mb-1">First name</label>
           <input id="firstName" name="firstName" type="text" required className={inputClass} placeholder="John" />
         </div>
         <div>
-          <label htmlFor="lastName" className="block text-[13px] font-medium text-label mb-1">
-            Last Name
-          </label>
+          <label htmlFor="lastName" className="block text-[13px] font-medium text-label mb-1">Last name</label>
           <input id="lastName" name="lastName" type="text" required className={inputClass} placeholder="Doe" />
         </div>
       </div>
-
       <div>
-        <label htmlFor="email" className="block text-[13px] font-medium text-label mb-1">
-          Email Address
-        </label>
+        <label htmlFor="email" className="block text-[13px] font-medium text-label mb-1">Email</label>
         <input id="email" name="email" type="email" required className={inputClass} placeholder="john@example.com" />
       </div>
-
       <div>
-        <label htmlFor="phone" className="block text-[13px] font-medium text-label mb-1">
-          Phone Number
-        </label>
+        <label htmlFor="phone" className="block text-[13px] font-medium text-label mb-1">Phone</label>
         <input id="phone" name="phone" type="tel" className={inputClass} placeholder="+27 12 345 6789" />
       </div>
-
       <div>
-        <label htmlFor="service" className="block text-[13px] font-medium text-label mb-1">
-          Service Interest
-        </label>
+        <label htmlFor="service" className="block text-[13px] font-medium text-label mb-1">Service</label>
         <select id="service" name="service" required className={inputClass}>
           <option value="">Select a service</option>
-          {serviceOptions.map((opt) => (
-            <option key={opt} value={opt}>{opt}</option>
-          ))}
+          {serviceOptions.map((o) => <option key={o} value={o}>{o}</option>)}
         </select>
       </div>
-
       <div>
-        <label htmlFor="message" className="block text-[13px] font-medium text-label mb-1">
-          Message
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          rows={5}
-          required
-          className={`${inputClass} resize-none`}
-          placeholder="Tell us about your forex needs..."
-        />
+        <label htmlFor="message" className="block text-[13px] font-medium text-label mb-1">Message</label>
+        <textarea id="message" name="message" rows={4} required className={`${inputClass} resize-none`} placeholder="Tell us what you need..." />
       </div>
-
       <button
         type="submit"
         disabled={status === "sending"}
-        className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full bg-cyan px-6 py-3 text-[14px] font-semibold text-white shadow-lg shadow-cyan/20 hover:bg-cyan-dark disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:scale-[1.02] active:scale-[0.98]"
+        className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-lg bg-cyan px-6 py-2.5 text-[14px] font-medium text-white hover:bg-cyan-dark disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
       >
         {status === "sending" ? (
-          <>
-            <Loader2 className="h-4 w-4 animate-spin" />
-            Sending...
-          </>
+          <><Loader2 className="h-4 w-4 animate-spin" /> Sending...</>
         ) : (
-          <>
-            <Send className="h-4 w-4" />
-            Send Message
-          </>
+          <><Send className="h-4 w-4" /> Send message</>
         )}
       </button>
     </form>

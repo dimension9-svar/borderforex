@@ -330,7 +330,7 @@ export default function QuoteCalculator() {
         <button
           type="submit"
           disabled={status === "sending" || !amount || fromCurrency === toCurrency}
-          className="inline-flex items-center justify-center gap-2 w-full rounded-full bg-cyan px-6 py-3 text-[14px] font-semibold text-white shadow-lg shadow-cyan/20 hover:bg-cyan-dark disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:scale-[1.01] active:scale-[0.99]"
+          className="inline-flex items-center justify-center gap-2 w-full rounded-lg bg-cyan px-6 py-3 text-[14px] font-semibold text-white shadow-lg shadow-cyan/20 hover:bg-cyan-dark disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:scale-[1.01] active:scale-[0.99]"
         >
           {status === "sending" ? (
             <><Loader2 className="h-4 w-4 animate-spin" /> Submitting...</>

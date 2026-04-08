@@ -201,7 +201,7 @@ export default async function ServicePage({
   return (
     <>
       {/* Header */}
-      <section className="bg-gradient-to-b from-gray-900 via-[#0a1628] to-navy-dark py-24 lg:py-28">
+      <section className="bg-gradient-to-b from-gray-900 via-[#0a1628] to-navy-dark py-20 lg:py-28">
         <div className="mx-auto max-w-[1120px] px-6">
           <AnimatedSection>
             <Link
@@ -215,7 +215,7 @@ export default async function ServicePage({
               <div className="inline-flex items-center justify-center h-12 w-12 rounded-2xl bg-cyan/15 text-cyan">
                 <Icon className="h-6 w-6" />
               </div>
-              <h1 className="text-[36px] sm:text-[44px] font-bold tracking-tight text-white">
+              <h1 className="text-[36px] sm:text-[44px] font-normal tracking-[-0.03em] text-white">
                 {service.title}
               </h1>
             </div>
@@ -227,7 +227,7 @@ export default async function ServicePage({
       </section>
 
       {/* Content */}
-      <section className="py-24 lg:py-32 bg-surface">
+      <section className="py-20 lg:py-28 bg-surface">
         <div className="mx-auto max-w-[1120px] px-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
             {/* Main */}
@@ -243,7 +243,7 @@ export default async function ServicePage({
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="text-[20px] font-bold text-label mb-5">
+                <h2 className="text-[20px] font-medium text-label mb-4">
                   Service Features
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -257,7 +257,7 @@ export default async function ServicePage({
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="text-[20px] font-bold text-label mb-5">
+                <h2 className="text-[20px] font-medium text-label mb-4">
                   How It Works
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -308,13 +308,13 @@ export default async function ServicePage({
 
               <AnimatedSection delay={0.08}>
                 <div className="rounded-2xl bg-gradient-to-br from-navy to-gray-900 p-6 text-white">
-                  <h3 className="text-[17px] font-bold">Ready to get started?</h3>
+                  <h3 className="text-[17px] font-medium">Ready to get started?</h3>
                   <p className="mt-1.5 text-[13px] text-gray-400">
                     Contact our team for a personalised quote and expert guidance.
                   </p>
                   <Link
                     href="/quote"
-                    className="inline-flex items-center justify-center gap-2 mt-4 w-full rounded-full bg-cyan px-5 py-2.5 text-[13px] font-semibold text-white hover:bg-cyan-dark transition-all"
+                    className="inline-flex items-center justify-center gap-2 mt-4 w-full rounded-lg bg-cyan px-5 py-2.5 text-[13px] font-medium text-white hover:bg-cyan-dark transition-all"
                   >
                     Get a Quote
                     <ArrowRight className="h-3.5 w-3.5" />

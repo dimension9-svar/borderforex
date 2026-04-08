@@ -95,13 +95,13 @@ export default function Navbar() {
               href="/quote"
               className="px-3 py-1.5 text-xs font-medium text-cyan hover:text-cyan-dark transition-colors"
             >
-              Get a Quote
+              Get a quote
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-cyan px-4 py-1.5 text-xs font-semibold text-white hover:bg-cyan-dark transition-all shadow-sm shadow-cyan/20"
+              className="inline-flex items-center justify-center rounded-lg bg-cyan px-4 py-1.5 text-xs font-medium text-white hover:bg-cyan-dark transition-colors"
             >
-              Get Started
+              Contact us
             </Link>
           </div>
 
@@ -150,11 +150,11 @@ export default function Navbar() {
                 Contact
               </Link>
               <div className="pt-3 flex gap-3">
-                <Link href="/quote" onClick={() => setMobileOpen(false)} className="flex-1 text-center rounded-full border border-separator px-4 py-2.5 text-sm font-semibold text-cyan">
-                  Get a Quote
+                <Link href="/quote" onClick={() => setMobileOpen(false)} className="flex-1 text-center rounded-lg border border-separator px-4 py-2.5 text-sm font-medium text-cyan">
+                  Get a quote
                 </Link>
-                <Link href="/contact" onClick={() => setMobileOpen(false)} className="flex-1 text-center rounded-full bg-cyan px-4 py-2.5 text-sm font-semibold text-white">
-                  Get Started
+                <Link href="/contact" onClick={() => setMobileOpen(false)} className="flex-1 text-center rounded-lg bg-cyan px-4 py-2.5 text-sm font-medium text-white">
+                  Contact us
                 </Link>
               </div>
             </div>
